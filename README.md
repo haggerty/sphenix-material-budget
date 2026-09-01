@@ -7,7 +7,7 @@ actually added going outward in radius: beampipe, MVTX, INTT, TPC, EMCal,
 solenoid magnet, IHCal, OHCal. Built directly on the real Geant4 detector
 geometry (via `PHG4Reco`) rather than an analytic approximation.
 
-Two studies live here, sharing the subsystem-classification logic in
+Three studies live here, sharing the subsystem-classification logic in
 [`common/`](common/):
 
 - **[`baseline_scan/`](baseline_scan/)** — the idealized case: one ray per
@@ -17,6 +17,10 @@ Two studies live here, sharing the subsystem-classification logic in
   over one HCal sector), to see how much the idealized picture shifts once
   the real luminous region and sector structure are accounted for. This also
   surfaced a real Geant4 navigation bug — see that directory's README.
+- **[`boundary_artifact_scan/`](boundary_artifact_scan/)** — characterizes
+  (without attempting to fix) the ray-vs-volume-boundary grazing artifacts
+  found in `baseline_scan`: a fine-grained η scan plus automated outlier
+  detection, catalogued by which volume is responsible.
 
 See each subdirectory's README for method, caveats, and how to run it.
 

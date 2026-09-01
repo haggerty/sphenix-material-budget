@@ -191,3 +191,40 @@ underlying phenomenon as the η=0 seam.
 
 **Files changed:** `baseline_scan/README.md`, `docs/LOGBOOK.md`
 **Commit:** `09a7586`
+
+---
+
+## 2026-09-01 — Boundary-artifact characterization tool
+
+John asked to characterize the ray-vs-volume-boundary grazing artifacts
+thoroughly (rather than track down and fix the underlying geometry
+construction, which he judged too big a job for this repo), in a new
+subdirectory reusing the existing infrastructure rather than a separate
+project.
+
+Added `boundary_artifact_scan/`: `ArtifactScan.C` runs a fine-grained η
+scan (step 0.005 vs. the baseline's 0.02) recording both per-subsystem
+totals and a per-leaf-volume breakdown for EMCAL/MAGNET/IHCAL/OHCAL;
+`FindJumps.C` flags adjacent-bin outliers per (φ, subsystem) via a
+MAD-based threshold and automatically diffs the volume breakdown on both
+sides of each flagged jump to attribute it — automating the by-hand
+technique used for the η=0 and |η|=0.4 findings.
+
+Ran it: 362 jumps flagged. Validated against the known cases (the η=0
+EMCal seam was independently rediscovered, ~20 X₀ swing — though only
+because the half-bin-offset mitigation is sized relative to the grid step,
+not the seam's true angular width, so the finer grid re-exposes it at a
+smaller offset; the |η|≈0.4 OHCal jump also reappeared). Found two new
+things: a substantially larger (~11-16 X₀) artifact specific to the
+chimney-sector steel volume (`av_14_impr_1_OuterHCalChimneySector_Steel_pv_0`)
+around η≈-0.75, and a sibling of the |η|=0.4 jump at |η|≈0.74-0.75 present
+in the ordinary (non-chimney) sector in both φ regions. Also noted several
+unexplained ~5-7 X₀ single-tower EMCal swings near the edge of projective
+coverage (|η|≈1.0-1.1), not yet characterized further.
+
+**Files added:** `boundary_artifact_scan/ArtifactScan.C`,
+`boundary_artifact_scan/FindJumps.C`, `boundary_artifact_scan/README.md`,
+`boundary_artifact_scan/artifact_scan_subsystem.csv`,
+`boundary_artifact_scan/artifact_scan_volume.csv`,
+`boundary_artifact_scan/artifacts_catalog.csv`
+**Files changed:** `README.md`
