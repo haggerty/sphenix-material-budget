@@ -1,0 +1,12 @@
+# Vendored sPHENIX macros clone (fetch separately, see README)
+macros/
+
+# Run logs / scratch scan output from development
+run*.log
+test_scan.csv
+
+# macOS AppleDouble metadata files from network-share access
+._*
+
+# Claude Code session directory
+.claude/
