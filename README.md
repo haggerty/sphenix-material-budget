@@ -36,6 +36,11 @@ tower structure.
 above (φ=0 and φ=π/2 side by side), stacked in the true physical radial order
 found by the scan.
 
+`PlotSubsystemBudget.C` reads the same CSV and produces unstacked, overlaid
+line plots of just EMCAL, MAGNET, IHCAL, and OHCAL — useful when you need to
+read off one subsystem's own X₀/λ_I value directly, which the stacked plots
+above make hard to do since each system sits on top of the others.
+
 ### A genuine geometric gotcha (and how it's handled)
 
 Firing a ray at exactly η=0 gives a direction with zero z-component. sPHENIX's
@@ -65,6 +70,7 @@ direction; the unshifted η is still what gets written out and plotted.
 export ROOT_INCLUDE_PATH="$PWD/macros/common:$PWD/macros/detectors/sPHENIX:$ROOT_INCLUDE_PATH"
 root -b -q 'MaterialScan.C("material_scan.csv")'
 root -b -q 'PlotMaterialScan.C("material_scan.csv")'
+root -b -q 'PlotSubsystemBudget.C("material_scan.csv")'
 ```
 
 `MaterialScan.C` takes an optional second argument (`debugEta0`) that dumps every
@@ -76,6 +82,8 @@ useful if you extend the η/φ grid and need to debug a similar boundary artifac
 - `material_scan.csv` — columns `phi, eta, subsystem, sumX0, sumLambdaI`, one row
   per (φ, η, subsystem) with nonzero material.
 - `X0_vs_eta.{pdf,png}`, `lambdaI_vs_eta.{pdf,png}` — the two stacked plots.
+- `subsystem_X0_vs_eta.{pdf,png}`, `subsystem_lambdaI_vs_eta.{pdf,png}` — unstacked
+  EMCAL/MAGNET/IHCAL/OHCAL overlay plots.
 
 ## Caveats
 
