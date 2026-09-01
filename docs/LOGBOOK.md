@@ -172,3 +172,4 @@ entirely. Generated and reviewed the mean±RMS plots.
 `lambdaI_vs_eta.{pdf,png}`, `subsystem_X0_vs_eta.{pdf,png}`,
 `subsystem_lambdaI_vs_eta.{pdf,png}` → `baseline_scan/`
 **Files changed:** `README.md`
+**Commit:** `58c340f`
