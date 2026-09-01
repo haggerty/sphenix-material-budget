@@ -173,3 +173,20 @@ entirely. Generated and reviewed the mean±RMS plots.
 `subsystem_lambdaI_vs_eta.{pdf,png}` → `baseline_scan/`
 **Files changed:** `README.md`
 **Commit:** `58c340f`
+
+---
+
+## 2026-09-01 — Traced the |eta|~0.4 OHCal jump
+
+Followed up on the |η|≈0.4 OHCal jump left unexplained in the previous
+entry. Extended the same per-step debug-dump technique used for the η=0
+seam to a run of neighboring rays across η=0.30–0.42, and found the same
+class of effect at a different boundary: the *outermost* OHCal steel
+plate's path length swings sharply between adjacent η bins 0.02 apart
+(e.g. η=0.36 crosses it in two sub-steps totaling 1.76 X₀-equivalent path
+length, η=0.38 crosses the same plate in one ~2cm-shorter sub-step, 0.68
+X₀-equivalent) — a grazing/edge-of-volume sensitivity in the ray's exit
+angle through that outer boundary, not a real detector feature, same
+underlying phenomenon as the η=0 seam.
+
+**Files changed:** `baseline_scan/README.md`

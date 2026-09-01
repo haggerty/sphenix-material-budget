@@ -76,10 +76,18 @@ the steel — matching this scan's own scintillator numbers (very slightly
 points at the same class of near-θ=90° grazing/edge-of-volume effect as the
 EMCal seam above rather than a real detector feature. Not yet worked around;
 the half-bin offset (0.01 rad) isn't enough to clear it for this particular
-boundary. A similar, still-unexplained ~3.5% jump exists in OHCal at
-|η|≈0.34–0.40, symmetric in η sign, riding on top of the smaller sawtooth
-ripple from ordinary tower-plate boundary crossings that's visible throughout
-the whole OHCal curve.
+boundary. A similar ~3.5% jump exists in OHCal at |η|≈0.34–0.40, symmetric in
+η sign, riding on top of the smaller sawtooth ripple from ordinary
+tower-plate boundary crossings visible throughout the whole OHCal curve.
+Same class of effect, different boundary: comparing full step-by-step debug
+dumps for neighboring rays shows the *outermost* OHCal steel plate's path
+length swinging sharply between adjacent η bins 0.02 apart — e.g. η=0.36
+crosses it in two sub-steps totaling 1.76 X₀-equivalent path length, while
+η=0.38 crosses the same plate in a single ~2 cm shorter sub-step (0.68
+X₀-equivalent). The ray's exit point through that outer boundary is
+apparently hypersensitive to the exact crossing angle, the same underlying
+grazing sensitivity as the η=0 seam, just striking the plate's outer radial
+edge instead of an internal seam.
 
 ## Requirements
 
