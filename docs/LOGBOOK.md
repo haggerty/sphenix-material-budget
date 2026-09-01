@@ -189,4 +189,5 @@ X₀-equivalent) — a grazing/edge-of-volume sensitivity in the ray's exit
 angle through that outer boundary, not a real detector feature, same
 underlying phenomenon as the η=0 seam.
 
-**Files changed:** `baseline_scan/README.md`
+**Files changed:** `baseline_scan/README.md`, `docs/LOGBOOK.md`
+**Commit:** `09a7586`
