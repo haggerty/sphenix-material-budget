@@ -102,3 +102,8 @@ useful if you extend the η/φ grid and need to debug a similar boundary artifac
   four sit closest together in the stacked plots and are the hardest to read
   off individually; PIPE, MVTX, INTT, and TPC are omitted from that overlay
   since they're already readable at the bottom of the stack.
+
+## Development log
+
+`docs/LOGBOOK.md` records the evolution of this project: what was
+requested and what was done, with commit references, in chronological order.
