@@ -98,3 +98,7 @@ useful if you extend the η/φ grid and need to debug a similar boundary artifac
 - The world material is set to `G4_Galactic` (vacuum) rather than air, per the
   sPHENIX code's own comment marking that as the intended setting "for material
   scans" — air's contribution to X₀/λ_I is negligible regardless.
+- `PlotSubsystemBudget.C` only overlays EMCAL, MAGNET, IHCAL, and OHCAL — those
+  four sit closest together in the stacked plots and are the hardest to read
+  off individually; PIPE, MVTX, INTT, and TPC are omitted from that overlay
+  since they're already readable at the bottom of the stack.
